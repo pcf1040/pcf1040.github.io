@@ -19,6 +19,7 @@ h1 {color: white;
 The personal website of Patrick C. Flynn.
 </h1>
 </header>
+<body>
 <div class="message">
 <a href="pages/poems.html">Alors, c'est pas fini.</a>
 <p></p>
@@ -27,17 +28,24 @@ The personal website of Patrick C. Flynn.
 <input type="range" class="myslider" id="sliderRange" value="0">
 <p><span id="myNum">😳</span></p>
 </div>
-
+<span id="shape"> <svg> 
+	<circle id="myCircle" cx="50%" cy="50%" r="50" fill="cyan" stroke="black"
+stroke-width="4"> </svg>
+</span>
+</body>
 <script>
 var rangeslider = document.getElementById("sliderRange");
 var output = document.getElementById("myNum");
-output.style.fontSize = '' + 5*rangeslider.value + 'px'
+var theCircle = document.getElementById("myCircle");
+var initSize = theCircle.getAttribute('r');
+output.style.fontSize = '' + 5*rangeslider.value + 'px';
 rangeslider.oninput = function() {
 var input = this.value;
 output.style.fontSize = '' + input + 'px'
-var r = (7*input + 55) % 255;
-var g = (13*input + 22) % 255;
-var b = (43*input + 63) % 255;
+theCircle.setAttribute('r', initSize - input );
+var r = (5*input*0.08 + 55) % 255;
+var g = (17*input*0.08 + 22) % 255;
+var b = (63*input*0.08 + 63) % 255;
 document.body.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
 }
 </script>
