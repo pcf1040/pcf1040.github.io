@@ -14,13 +14,33 @@ h1 {color: white;
 
 
 <header>
+<meta charset="UTF-8">
 <h1>
 The personal website of Patrick C. Flynn.
 </h1>
 </header>
 <div class="message">
 <a href="pages/poems.html">Alors, c'est pas fini.</a>
+<p></p>
 </div>
+<div class ="rangeslider">
+<input type="range" class="myslider" id="sliderRange" value="0">
+<p><span id="myNum">😳</span></p>
+</div>
+
+<script>
+var rangeslider = document.getElementById("sliderRange");
+var output = document.getElementById("myNum");
+output.style.fontSize = '' + 5*rangeslider.value + 'px'
+rangeslider.oninput = function() {
+var input = this.value;
+output.style.fontSize = '' + input + 'px'
+var r = (7*input + 55) % 255;
+var g = (13*input + 22) % 255;
+var b = (43*input + 63) % 255;
+document.body.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
+}
+</script>
 
 
 </html>
