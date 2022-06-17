@@ -43,9 +43,9 @@ rangeslider.oninput = function() {
 var input = this.value;
 output.style.fontSize = '' + input + 'px'
 theCircle.setAttribute('r', initSize - input );
-var r = (5*input*0.08 + 55) % 255;
-var g = (17*input*0.08 + 22) % 255;
-var b = (63*input*0.08 + 63) % 255;
+var r = (87*input*0.05 + 63) % 255;
+var g = (17*input*0.05 + 141) % 255;
+var b = (5*input*0.05 + 87) % 255;
 document.body.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
 }
 </script>
