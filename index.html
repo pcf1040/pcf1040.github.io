@@ -2,82 +2,90 @@
 <html>
 
 <style>
-body {text-align: center;
-background-color: rgb(63,141,87);
-font-size : 20px;
+	body {
+		text-align: center;
+		background-color: rgb(63, 141, 87);
+		font-size: 20px;
 
-}
-h1 {color: white;
-	font-size : 34px;
-	-webkit-text-stroke: 1px black;
-}
-hr {
-	border-color : rgb(254, 178, 98);
-	height: 1px;
+	}
 
-}
-.message {font-size:24px;}
+	h1 {
+		color: white;
+		font-size: 34px;
+		-webkit-text-stroke: 1px black;
+	}
+
+	hr {
+		border-color: rgb(254, 178, 98);
+		height: 1px;
+
+	}
+
+	.message {
+		font-size: 24px;
+	}
 </style>
 
 
 <header>
-<meta charset="UTF-8">
-<title>Patrick C. Flynn</title>
-<h1>
-The personal website of Patrick C. Flynn.
-</h1>
+	<meta charset="UTF-8">
+	<title>Patrick C. Flynn</title>
+	<h1>
+		The personal website of Patrick C. Flynn.
+	</h1>
 </header>
+
 <body>
-<hr>
-<br>
-<div class="message">
-<a href="pages/poems.html">Poetry</a>
-<p></p>
-</div>
-<div id="noPurpose" style="display:none;">
-<div class ="rangeslider">
-<input type="range" class="myslider" id="sliderRange" value="0">
-<p><span id="myNum">😳</span></p>
-</div>
-<span id="shape"> <svg> 
-	<circle id="myCircle" cx="50%" cy="50%" r="50" fill="cyan" stroke="black"
-stroke-width="4"> </svg>
-</span>
-</div>
+	<hr>
+	<br>
+	<div class="message">
+		<a href="pages/poems.html">Poetry</a>
+		<p></p>
+	</div>
+	<div id="noPurpose" style="display:none;">
+		<div class="rangeslider">
+			<input type="range" class="myslider" id="sliderRange" value="0">
+			<p><span id="myNum">😳</span></p>
+		</div>
+		<span id="shape"> <svg>
+				<circle id="myCircle" cx="50%" cy="50%" r="50" fill="cyan" stroke="black" stroke-width="4">
+			</svg>
+		</span>
+	</div>
 </body>
 <footer>
 	<button id="noClickLink" style="background-color: rgb(254, 178, 98)">Experimental Features</button>
 </footer>
 <script>
-var rangeslider = document.getElementById("sliderRange");
-var hideContent = document.getElementById("noPurpose");
-var noClickLink = document.getElementById("noClickLink");
-var output = document.getElementById("myNum");
-var theCircle = document.getElementById("myCircle");
-var initSize = theCircle.getAttribute('r');
+	var rangeslider = document.getElementById("sliderRange");
+	var hideContent = document.getElementById("noPurpose");
+	var noClickLink = document.getElementById("noClickLink");
+	var output = document.getElementById("myNum");
+	var theCircle = document.getElementById("myCircle");
+	var initSize = theCircle.getAttribute('r');
 
-output.style.fontSize = '' + 5*rangeslider.value + 'px';
+	output.style.fontSize = '' + 5 * rangeslider.value + 'px';
 
 
 
-noClickLink.onclick = function() {
-	if( hideContent.style.display === 'none') {
-		hideContent.style.display = 'block';
-	} else {
-		hideContent.style.display = 'none';
+	noClickLink.onclick = function () {
+		if (hideContent.style.display === 'none') {
+			hideContent.style.display = 'block';
+		} else {
+			hideContent.style.display = 'none';
+		}
 	}
-}
 
 
-rangeslider.oninput = function() {
-	var input = this.value;
-	output.style.fontSize = '' + input + 'px'
-	theCircle.setAttribute('r', initSize - input );
-	var r = (87*input*0.05 + 63) % 255;
-	var g = (17*input*0.05 + 141) % 255;
-	var b = (5*input*0.05 + 87) % 255;
-	document.body.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
-}
+	rangeslider.oninput = function () {
+		var input = this.value;
+		output.style.fontSize = '' + input + 'px'
+		theCircle.setAttribute('r', initSize - input);
+		var r = (87 * input * 0.05 + 63) % 255;
+		var g = (17 * input * 0.05 + 141) % 255;
+		var b = (5 * input * 0.05 + 87) % 255;
+		document.body.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
+	}
 
 </script>
 
